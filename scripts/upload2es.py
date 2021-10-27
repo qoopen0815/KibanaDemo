@@ -28,6 +28,8 @@ if not es.indices.exists(index=index_name):
 # include_type_nameはmappingにtypeを含む場合にTrueにする（無ければ書かなくていい
 es.indices.put_mapping(index=index_name, doc_type=doctype, body=mapping, include_type_name=True)
 
+# print(es.indices.get_mapping(index=index_name))
+
 ### simple
 with open(csv_file) as file:
   for row in DictReader(file):
