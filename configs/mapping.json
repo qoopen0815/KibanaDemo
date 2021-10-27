@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "Date/Time": {
+      "type": "date",
+      "format": "yyyy/MM/dd H:mm:ss"
+    },
+    "OpTime": { "type": "float" },
+    "Result": { "type": "integer" }
+  }
+}
