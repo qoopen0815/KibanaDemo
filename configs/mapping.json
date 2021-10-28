@@ -1,10 +1,9 @@
 {
   "properties": {
-    "Date/Time": {
-      "type": "date",
-      "format": "yyyy/MM/dd H:mm:ss"
-    },
-    "OpTime": { "type": "float" },
+    "@timestamp": { "type": "date" },
+    "Good": { "type": "float" },
+    "Warnning": { "type": "float" },
+    "Error": { "type": "float" },
     "Result": { "type": "integer" }
   }
 }

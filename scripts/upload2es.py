@@ -6,9 +6,10 @@ Created on Thu Jun 17 21:10:55 2021
 """
 from elasticsearch import Elasticsearch
 from csv import DictReader
+from datetime import datetime as dt
 import json
 
-csv_file = "sample_data\sample.csv"
+csv_file = "sample_data\sample2.csv"
 elasticsearch_host = "localhost"
 index_name = "sample-data"
 doctype = "Sample"
@@ -33,6 +34,7 @@ es.indices.put_mapping(index=index_name, doc_type=doctype, body=mapping, include
 ### simple
 with open(csv_file) as file:
   for row in DictReader(file):
-    es.index(index=index_name, doc_type=doctype, id=row["Date/Time"], body=row)
+    row['@timestamp'] = dt.strptime(row['@timestamp'], '%Y/%m/%d %H:%M:%S.%f')
+    es.index(index=index_name, doc_type=doctype, id=row['@timestamp'], body=row)
 
 file.close()
